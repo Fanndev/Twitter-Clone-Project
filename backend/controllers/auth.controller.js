@@ -21,7 +21,7 @@ export const login = async (req, res) => {
             });
         }
 
-        generateTokenAndSetCookie(user._id, res);
+        generateTokenAndSetCookie(res, user._id);
 
         return res.status(StatusCode.OK).json({
             message: ResponseMessage.LoginSuccess,
@@ -78,7 +78,7 @@ export const register = async (req, res) => {
         });
 
         if (newUser) {
-            generateTokenAndSetCookie(newUser._id, res);
+            generateTokenAndSetCookie(res, newUser._id);
             await newUser.save();
 
             return res.status(StatusCode.CREATED).json({
@@ -93,7 +93,8 @@ export const register = async (req, res) => {
         
     } catch (error) {
         return res.status(StatusCode.INTERNAL_SERVER_ERROR).json({
-            message: error.message
+            message: error.message,
+            stackL : error.stack
         });
     }
 };
