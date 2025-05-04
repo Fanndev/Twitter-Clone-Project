@@ -2,11 +2,17 @@ import express from "express";
 import dotenv from "dotenv";
 import {connectDB} from "./config/db.js";
 import AuthRoutes from "./routers/auth.routes.js";
+import bodyParser from "body-parser";
+import cors from "cors";
 dotenv.config();
 
 const app = express();
 
 const port = process.env.PORT;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // routes
 app.use("/api/v1/auth", AuthRoutes);
