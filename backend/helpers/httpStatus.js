@@ -36,6 +36,7 @@ export const StatusCode = {
     Emailnot: "Email not found",
     Wrongpass: "Wrong password",
     InvalidEmail : "Invalid email format",
+    cantFollowYourself : "You can't follow yourself",
   };
   
   export default {

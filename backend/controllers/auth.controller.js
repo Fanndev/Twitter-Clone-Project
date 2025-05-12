@@ -111,3 +111,18 @@ export const logout = (req, res) => {
         });
     }
 };
+
+export const getme = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id).select("-password");
+         res.status(StatusCode.OK).json({
+            message: ResponseMessage.Success,
+            data: req.user,
+            user
+        });
+    } catch (error) {
+        return res.status(StatusCode.INTERNAL_SERVER_ERROR).json({
+            message: error.message
+        });
+    }
+}
