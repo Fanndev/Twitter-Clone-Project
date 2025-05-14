@@ -37,6 +37,10 @@ export const StatusCode = {
     Wrongpass: "Wrong password",
     InvalidEmail : "Invalid email format",
     cantFollowYourself : "You can't follow yourself",
+    followed : "You followed successfully",
+    unfollowed : "You unfollowed successfully",
+    PasswordNotMatch : "Password not same",
+    PasswordRequired : "Password required",
   };
   
   export default {

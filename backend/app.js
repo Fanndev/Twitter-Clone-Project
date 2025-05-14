@@ -5,7 +5,16 @@ import AuthRoutes from "./routers/auth.routes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import UserRoutes from "./routers/user.routes.js";
+import { v2 as cloudinary } from "cloudinary";
+
 dotenv.config();
+cloudinary.config({
+    cloud_name: process.env.CLOUDYNARY_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
+});
+
+
 
 const app = express();
 
